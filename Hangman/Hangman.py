@@ -1,6 +1,8 @@
 import random
 
 # choose a random word from txt file
+
+
 def random_word():
     with open("randomwords.txt", "r") as file:
         all_text = file.read()
