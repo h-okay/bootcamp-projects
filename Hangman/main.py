@@ -36,7 +36,7 @@ def random_word() -> str:
 
 
 def message(msg):
-    """Prints endgame screen"""
+    """Displays endgame screen"""
     pygame.time.delay(1500)
     window.fill(WHITE)
     text = WORD_FONT.render(msg, 1, BLACK)
