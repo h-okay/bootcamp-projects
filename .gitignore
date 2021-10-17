@@ -8,3 +8,7 @@ Collecting and Cleaning Data/constants.py
 Collecting and Cleaning Data/collect_clean.ipynb
 Collecting and Cleaning Data/dirtydata.csv
 Collecting and Cleaning Data/dirty2000.csv
+TMDB API Data Cleaning/collect_clean.ipynb
+TMDB API Data Cleaning/constants.py
+TMDB API Data Cleaning/dirtydata.csv
+TMDB API Data Cleaning/top2000.csv
