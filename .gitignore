@@ -1,4 +1,5 @@
 
+.git/info/exclude
 Hangman/.vscode/settings.json
 Hangman/screenshot.png
 *.pyc
