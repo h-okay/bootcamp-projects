@@ -3,6 +3,8 @@ Hangman/.vscode/settings.json
 Hangman/screenshot.png
 *.pyc
 Hangman/.idea/
+.idea/
 Collecting and Cleaning Data/constants.py
 Collecting and Cleaning Data/collect_clean.ipynb
 Collecting and Cleaning Data/dirtydata.csv
+Collecting and Cleaning Data/dirty2000.csv
