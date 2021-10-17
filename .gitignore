@@ -1,3 +1,8 @@
 
 Hangman/.vscode/settings.json
 Hangman/screenshot.png
+*.pyc
+Hangman/.idea/
+Collecting and Cleaning Data/constants.py
+Collecting and Cleaning Data/collect_clean.ipynb
+Collecting and Cleaning Data/dirtydata.csv
