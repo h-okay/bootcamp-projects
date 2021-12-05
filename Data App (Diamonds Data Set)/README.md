@@ -1,5 +1,5 @@
 # Data app using Streamlit and Diamonds data set
-### https://share.streamlit.io/h-okay/streamlit_apps/main/index.py
+### https://share.streamlit.io/h-okay/data_app_diamonds/main/index.py
 
 **You can get the data set here** --> https://www.kaggle.com/shivam2503/diamonds
 
