@@ -29,7 +29,8 @@ def replace_with_thresholds(dataframe, variable):
 def create_rfm(dataframe):
     # VERIYI HAZIRLAMA
     dataframe.dropna(inplace=True)
-    returns = dataframe[dataframe.Invoice.astype(str).str.contains('C', na=False)].index
+    returns = dataframe[
+        dataframe.Invoice.astype(str).str.contains('C', na=False)].index
     dataframe.drop(returns, axis=0, inplace=True)
     dataframe = dataframe[(dataframe['Quantity'] > 0)]
     dataframe = dataframe[(dataframe['Price'] > 0)]
@@ -145,7 +146,7 @@ cltv = ggf.customer_lifetime_value(bgf,
                                    cltv_df['recency'],
                                    cltv_df['T'],
                                    cltv_df['monetary'],
-                                   time=6, # MONTHS
+                                   time=6,  # MONTHS
                                    freq="W",
                                    discount_rate=0.01)
 
@@ -164,7 +165,6 @@ rfm.rename(columns={'segment': 'rfm_segment'}, inplace=True)
 final = rfm[['rfm_segment']].merge(cltv_final, on='Customer ID')
 final.rename(columns={'scaled_clv': '6m_scaled_clv', 'clv': '6m_clv'},
              inplace=True)
-
 
 top20customers = int(len(final) * 0.2)
 final.sort_values('6m_scaled_clv', ascending=False).head(top20customers)[
@@ -194,7 +194,7 @@ top_20perc1 = round(577 * 0.2)
 top_champ = final[final.rfm_segment == 'champions'].sort_values(
     ['6m_scaled_clv', '6m_clv'], ascending=False).iloc[:top_20perc1][
     'Customer ID']
-list(top_champ) # Top %20 of Champions RFM Segment with highest CLTV
+list(top_champ)  # Top %20 of Champions RFM Segment with highest CLTV
 
 # -----------------------------------------------------------------------------
 
@@ -211,7 +211,7 @@ top_20perc2 = round(730 * 0.2)
 top_loyal = final[final.rfm_segment == 'loyal_customers'].sort_values(
     ['6m_scaled_clv', '6m_clv'], ascending=False).iloc[:top_20perc2][
     'Customer ID']
-list(top_loyal) # Top %20 of Loyal Customers RFM Segment with highest CLTV
+list(top_loyal)  # Top %20 of Loyal Customers RFM Segment with highest CLTV
 
 # -----------------------------------------------------------------------------
 
@@ -228,7 +228,7 @@ top_20perc3 = round(352 * 0.2)
 top_poten = final[final.rfm_segment == 'potential_loyalists'].sort_values(
     ['6m_scaled_clv', '6m_clv'], ascending=False).iloc[:top_20perc3][
     'Customer ID']
-list(top_poten) # Top %20 of Potential Loyalists RFM Segment with highest CLTV
+list(top_poten)  # Top %20 of Potential Loyalists RFM Segment with highest CLTV
 
 ################## CLTV FOR DIFFERENT TIME PERIODS(1,12 Months) ###############
 
@@ -351,8 +351,9 @@ final[final.cltv_segment == 'B'][
 
 ########################## EXPECTED PURCHASE AND SALES ########################
 
-to_db = final[['Customer ID', 'recency', 'T', 'frequency', 'monetary', '6m_clv',
-               '6m_scaled_clv', 'cltv_segment']]
+to_db = final[
+    ['Customer ID', 'recency', 'T', 'frequency', 'monetary', '6m_clv',
+     '6m_scaled_clv', 'cltv_segment']]
 
 to_db["expected_purc_1_week"] = bgf.predict(1,
                                             to_db['frequency'],
@@ -376,7 +377,6 @@ to_db = to_db.reindex(
 
 to_db.rename(columns={'6m_clv': 'clv', 'cltv_segment': 'segment',
                       '6m_scaled_clv': 'scaled_clv'}, inplace=True)
-
 
 # Customer ID   recency     frequency   monetary    expected_purc_1_week
 # 12747.0       52.285714   11          381.455455  0.202475
