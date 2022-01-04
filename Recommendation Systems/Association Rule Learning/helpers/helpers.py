@@ -56,10 +56,3 @@ def create_rfm(dataframe):
     rfm['segment'] = rfm['RFM_SCORE'].replace(seg_map, regex=True)
     rfm = rfm[["recency", "frequency", "monetary", "segment"]]
     return rfm
-
-
-creds = {'user': 'group_1',
-         'passwd': 'miuul',
-         'host': '34.79.73.237',
-         'port': 3306,
-         'db': 'group_1'}
