@@ -59,10 +59,3 @@ def create_rfm(dataframe):
     rfm['segment'] = rfm['RFM_SCORE'].replace(seg_map, regex=True)
     rfm = rfm[["recency", "frequency", "monetary", "segment"]]
     return rfm
-
-
-creds = {'user': 'synan_dsmlbc',
-         'passwd': 'haydegidelum',
-         'host': '34.91.75.155',
-         'port': 3306,
-         'db': 'synan_dsmlbc_db'}
